@@ -6,7 +6,7 @@
 
 CVS_REPOSITORY ?= amficom.cvs
 GIT_REPOSITORY ?= amficom.git
-GIT_ORIGIN ?= git@github.com:syrus-ru/amficom.git
+GIT_REMOTE ?= git@github.com:syrus-ru/amficom.git
 DESCRIPTION ?= AMFICOM Optic
 
 AUTHORMAP = authormap
@@ -23,7 +23,7 @@ convert: $(GIT_REPOSITORY) ## Convert CVS repository to Git
 push: $(GIT_REPOSITORY) ## Push the converted repository to the specified remote
 # Ignore if remote already exists.
 	cd "$(GIT_REPOSITORY)"
-	-git remote add "$(REMOTE)" "$(GIT_ORIGIN)"
+	-git remote add "$(REMOTE)" "$(GIT_REMOTE)"
 	git push --force "$(REMOTE)" --all
 	git push --force "$(REMOTE)" --tags
 
